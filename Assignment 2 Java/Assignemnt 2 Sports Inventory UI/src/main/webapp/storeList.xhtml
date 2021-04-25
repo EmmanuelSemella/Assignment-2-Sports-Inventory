@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+    <div class="p-d-flex">
+        <div class="p-mr-2">
+            <p:dataTable var="inventory" value="#{InventoryAppBean.inventoryList}">
+                <p:column headerText="Name">
+                    <h:outputText value="#{inventory.name}"/>
+                </p:column>
+
+                <p:column headerText="Location">
+                    <h:outputText value="#{sport.location}"/>
+                </p:column>
+
+                <p:column headerText="Inventory List">
+                    <h:outputText value="#{store.listOfInventory}"/>
+                </p:column>
+
+                <p:column headerText="Add Product">
+                    <p:commandButton type="Add" value="Add"
+                                     actionListener="#{Store.add(store)}"/>
+                </p:column>
+
+                <p:commandButton type="Add" actionListener="#{StoreAppBean.addStore}"
+                                 validateClient="true"
+                                 value="Add Store"/>
+                <p:commandButton type="Clear" actionListener="#{StoreAppBean.clearFields}"
+                                 validateClient="true"
+                                 value="clear fields"/>
+            </p:dataTable>
+        </div>
+    </div>
+
+</h:body>
+</html>
